@@ -3,10 +3,10 @@ name: CI/CD for ToDoListAPI
 on:
   push:
     branches:
-      - CI/CD2
+      - master
   pull_request:
     branches:
-      - CI/CD2
+      - master
 
 jobs:
   build-test-push-api:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Docker image for ToDoListAPI
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/todolistapi:latest .  # Убрали -f, так как файл называется Dockerfile
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/todolistapi:latest .  
 
       - name: Create Docker network and run containers
         run: |
